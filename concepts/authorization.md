@@ -1,8 +1,8 @@
 ## Authorization
 
-The Wunderlist API uses [OAuth2](http://oauth.net/2/) to allow external applications to request authorization to a user’s Wunderlist account without directly handling their password.
+奇妙清单API 不直接使用用户密码，而是使用[OAuth2](http://oauth.net/2/)验证其它外部应用访问用户的奇妙清单账号的请求。
 
-Developers must [register their application](https://developer.wunderlist.com/apps/new) before getting started. Registration assigns a unique client ID and client secret for your application’s use. After you have registered your application, you can let Wunderlist users authorize access to their account information from your application by getting an access token.
+开发者在必须在使用这些API之前[注册他们的应用](https://developer.wunderlist.com/apps/new)。App的注册需要一个用户ID和一个用户密码，之后你就可以让奇妙清单的用户在你的应用里访问通过token访问他们的账号信息了。
 
 After a user has authorized your application and you have an access token, you can use it in Wunderlist API requests by setting the `X-Client-ID` and `X-Access-Token` HTTP request headers.
 
