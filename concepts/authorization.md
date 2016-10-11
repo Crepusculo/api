@@ -14,17 +14,15 @@ Wunderlist API 不直接使用用户密码，而是允许其它应用通过[OAut
 
 <div class="p2 rounded border border-red bg-transparent-red">
 	<strong class="bold">注意!</strong>
-	Please note that setting the above mentioned headers is required to access protected resources on the Wunderlist API. OAuth2 is only used for obtaining user tokens.
     需要设置上述头文件才能访问 WunderList API 上受保护的资源，OAuth2 仅用于获取用户 tokens。
     请注意，
 </div>
 
 ### Web Server 应用集成
 
-To integrate your third-party web server application with Wunderlist, use the following flow:
+使用以下流程将第三方 Web 服务器应用程序与 Wunderlist 集成：
 
-
-#### 1. Redirect users to request Wunderlist access
+#### 1. 重定向用户以请求 Wunderlist 访问
 
     https://www.wunderlist.com/oauth/authorize?client_id=ID&redirect_uri=URL&state=RANDOM
 
