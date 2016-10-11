@@ -1,23 +1,25 @@
-## Authorization
+## 授权
 
-奇妙清单API 不直接使用用户密码，而是使用[OAuth2](http://oauth.net/2/)验证其它外部应用访问用户的奇妙清单账号的请求。
+奇妙清单API 不直接使用用户密码，而是使用[OAuth2](http://oauth.net/2/)授权其它外部应用访问用户的奇妙清单账号的请求。
 
-开发者在必须在使用这些API之前[注册他们的应用](https://developer.wunderlist.com/apps/new)。App的注册需要一个用户ID和一个用户密码，之后你就可以让奇妙清单的用户在你的应用里访问通过token访问他们的账号信息了。
+开发者在必须在使用这些API之前[注册他们的应用](https://developer.wunderlist.com/apps/new)。App的注册需要一个用户ID和一个用户密码，之后你就可以在奇妙清单的用户在你的应用里授权后，通过 token 访问他们的账号信息了。
 
 After a user has authorized your application and you have an access token, you can use it in Wunderlist API requests by setting the `X-Client-ID` and `X-Access-Token` HTTP request headers.
+在用户授权，应用获得 token 后，你可以通过设置 `X-Client-Id` 和 `X-Access-Token` HTTP request headers 使用奇妙清单API。
 
     X-Access-Token: OAUTH-TOKEN X-Client-ID: CLIENT-ID
 
-As an example, in curl you can set the Authorization header like this:
+举个例子，你可以这样设置你的 curl 的授权头文件：
 
     curl -H "X-Access-Token: OAUTH-TOKEN" -H "X-Client-ID: CLIENT-ID" https://a.wunderlist.com/api/v1/user
 
 <div class="p2 rounded border border-red bg-transparent-red">
-	<strong class="bold">Attention!</strong>
+	<strong class="bold">注意!</strong>
 	Please note that setting the above mentioned headers is required to access protected resources on the Wunderlist API. OAuth2 is only used for obtaining user tokens.
 </div>
 
 ### Web Server Application Integration
+Web服务应用注册
 
 To integrate your third-party web server application with Wunderlist, use the following flow:
 
@@ -26,11 +28,11 @@ To integrate your third-party web server application with Wunderlist, use the fo
 
     https://www.wunderlist.com/oauth/authorize?client_id=ID&redirect_uri=URL&state=RANDOM
 
-#### Parameters
+#### 参数
 
-Name | Type | Description
+名称 | 类型 | 描述
 -----|------|--------------
-`client_id`|`string` | **Required**. The Client ID you received from Wunderlist when you [registered your application](https://developer.wunderlist.com/apps/new).
+`client_id`|`string` | **Required**. Client ID 是你在[注册应用](https://developer.wunderlist.com/apps/new)时收到的那个。
 `redirect_uri`|`string` | **Required**. The URL in your app where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
 `state`|`string` | **Required**. An unguessable random string. It is used to protect against cross-site request forgery attacks.
 
