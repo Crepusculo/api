@@ -1,8 +1,8 @@
-## Revisions and Sync
+## 复原和同步
 
-Every entity in the Wunderlist API has a read-only `revision` property. This property is an integer which is updated in response to changes to that entity or any of its children. When the title of a task is changed, that task’s revision is updated—as well as the revisions of all of the parent items of that task, including list and root entities.
+Wunderlist API 的每个实体拥有一个只读的 `revision` 属性。`revision` 属性是一个每当实体或其任意子成员在响应后被更新就会改变的整型。当任务的标题改变的时候，任务的复原属性也会更新，同时该任务所有的爹娘节点包括列表和根实体的复原属性也会一起改变。
 
-### Updating Entities
+### 更新实体
 
 In order to guarantee that updates to Wunderlist entities are correctly executed and kept in sync across clients, any changes to an entity through the API must be accompanied by the `revision` property. The server uses this property to ensure that the client has the most up-to-date version of the entity. If a client makes a request with an out-of-date `revision` property, the request will fail, indicating that the client needs to fetch the entity’s current state and try again.
 
@@ -28,9 +28,10 @@ All of the elements in Wunderlist’s data model are stored in a tree with revis
         - reminder
         - avatar
 
-### Sync
+### 同步
 
 You can completely synchronize a local copy of the Wunderlist data model with the Wunderlist API by checking the root `revision` property, descending if necessary, and repeating the process for each leaf in the tree.
+你可以同步 `revision` 属性， Wunderlist API 完全同步本地拷贝
 
 When a russian doll sync occurs on a client, the following rules apply:
 
