@@ -1,11 +1,10 @@
 ## 授权
 
-奇妙清单API 不直接使用用户密码，而是使用[OAuth2](http://oauth.net/2/)授权其它外部应用访问用户的奇妙清单账号的请求。
+Wunderlist API 不直接使用用户密码，而是允许其它应用通过[OAuth2](http://oauth.net/2/)请求授权访问用户的奇妙清单账户。
 
-开发者在必须在使用这些API之前[注册他们的应用](https://developer.wunderlist.com/apps/new)。App的注册需要一个用户ID和一个用户密码，之后你就可以在奇妙清单的用户在你的应用里授权后，通过 token 访问他们的账号信息了。
+开发者在必须在使用这些API之前[注册他们的应用](https://developer.wunderlist.com/apps/new)。注册会给你的应用分配唯一的客户端ID和密码，之后就可以在奇妙清单的用户在你的应用里授权后，通过 token 访问他们的账户信息了。
 
-After a user has authorized your application and you have an access token, you can use it in Wunderlist API requests by setting the `X-Client-ID` and `X-Access-Token` HTTP request headers.
-在用户授权，应用获得 token 后，你可以通过设置 `X-Client-Id` 和 `X-Access-Token` HTTP request headers 使用奇妙清单API。
+在用户授权给你的应用，应用获得 token 后，你就可以使用该 token 来通过设置 `X-Client-Id` 和 `X-Access-Token` HTTP request headers 使用奇妙清单API。
 
     X-Access-Token: OAUTH-TOKEN X-Client-ID: CLIENT-ID
 
@@ -16,10 +15,11 @@ After a user has authorized your application and you have an access token, you c
 <div class="p2 rounded border border-red bg-transparent-red">
 	<strong class="bold">注意!</strong>
 	Please note that setting the above mentioned headers is required to access protected resources on the Wunderlist API. OAuth2 is only used for obtaining user tokens.
+    需要设置上述头文件才能访问 WunderList API 上受保护的资源，OAuth2 仅用于获取用户 tokens。
+    请注意，
 </div>
 
-### Web Server Application Integration
-Web服务应用注册
+### Web Server 应用集成
 
 To integrate your third-party web server application with Wunderlist, use the following flow:
 
@@ -32,7 +32,7 @@ To integrate your third-party web server application with Wunderlist, use the fo
 
 名称 | 类型 | 描述
 -----|------|--------------
-`client_id`|`string` | **Required**. Client ID 是你在[注册应用](https://developer.wunderlist.com/apps/new)时收到的那个。
+`client_id`|`string` | **Required**. 你在[注册应用](https://developer.wunderlist.com/apps/new)时收到的Client ID 。
 `redirect_uri`|`string` | **Required**. The URL in your app where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
 `state`|`string` | **Required**. An unguessable random string. It is used to protect against cross-site request forgery attacks.
 
