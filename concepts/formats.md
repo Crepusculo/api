@@ -1,8 +1,9 @@
-## Formats
+## 格式
 
-Every request and response in our API is transmitted in [JSON](http://www.json.org)—JavaScript Object Notation. It’s simple to use and implementations of JSON are widely available.  Where you see `Data` in these documents for POST, PATCH, and PUT requests, you must send data as JSON in the body of your request.
+API 的每个请求和响应都通过 [JSON](http://www.json.org)-JavaScript Object Notation 来传输。JSON 易于使用而且有广泛可用的实现。本文档中你所见到的 POST, PATCH, PUT 的请求，都必须通过 JSON 来传输你的数据。
 
 For example creating a task:
+例：创建一个新的任务
 
     POST a.wunderlist.com/api/v1/tasks
 
@@ -17,21 +18,21 @@ For example creating a task:
 
 ### Content-Type
 
-All requests that POST, PATCH, or PUT JSON must set a `Content-Type` header with a value of `application/json`. Not setting this header or setting it to a different value will result in an error.
+所有 POST, PATCH 或 PUT 的 JSON 请求必须设置一个含有 `application/json` 值的 `Content-Type` 头。未设置头文件或头文件值错误将会返回error。
 
-### Encoding
+### 编码
 
-All requests must be encoded using UTF-8. All responses are UTF-8.
+所有请求必须以 UTF-8 编码。所有响应的返回形式为 UTF-8。
 
 ### Date and Time Format
 
-All dates and times in the Wunderlist API are formatted as ISO-8601 strings. All times are provided as UTC. For example: `2013-10-09T23:34:11Z`
+Wunderlist API 中所有的时间和日期都被格式化为 ISO-8601 字符串，所有的时间都以 UTC 时区时间提供。用例：`2013-10-09T23:34:11Z`
 
 ### Error Responses
 
-Error responses are transmitted as an `error` dictionary and contain at least `type`, `translation_key`, and `message` attributes.
+错误响应将会以一个包含 `type`，`translation_key` 以及 `message` 参数的字典 `error`返回。
 
-#### 401 Unauthorized
+#### 401 Unauthorized 未授权
 
     {
       "error": {
@@ -41,7 +42,7 @@ Error responses are transmitted as an `error` dictionary and contain at least `t
       }
     }
 
-#### 404 Not Found
+#### 404 Not Found 未知请求
 
     {
       "error": {
@@ -51,9 +52,9 @@ Error responses are transmitted as an `error` dictionary and contain at least `t
       }
     }
 
-#### 400 Bad Request
+#### 400 Bad Request 错误请求
 
-Additional attributes may be sent with some errors. In particular, for bad requests with a `message` of `Missing parameter.`, the missing parameters along with messages indicating the problem are provided.
+一部分错误将会返回附加的参数。特别地，当发生 `message` 为 `Missing parameter` 的错误时，遗失的参数会和指示问题的信息一起被提供。
 
     {
       "error": {
