@@ -10,25 +10,25 @@ The primary things you’ll need to use it are an understanding of our data mode
 
 * [Authorization](concepts/authorization.md)
 * [Formats](concepts/formats.md)
-* [Revisions](concepts/revisions.md)
+* [修订](concepts/revisions.md)
 
 ### Endpoints
 
-* [Avatar](endpoints/avatar.md)
-* [File](endpoints/file.md)
-* [File Preview](endpoints/file_preview.md)
-* [Folder](endpoints/folder.md)
-* [List](endpoints/list.md)
+* [头像](endpoints/avatar.md)
+* [文件](endpoints/file.md)
+* [文件预览](endpoints/file_preview.md)
+* [文件夹](endpoints/folder.md)
+* [列表](endpoints/list.md)
 * [Membership](endpoints/membership.md)
-* [Note](endpoints/note.md)
-* [Positions](endpoints/positions.md)
+* [笔记](endpoints/note.md)
+* [位置](endpoints/positions.md)
 * [Reminder](endpoints/reminder.md)
 * [Root](endpoints/root.md)
-* [Subtask](endpoints/subtask.md)
-* [Task](endpoints/task.md)
-* [Task Comment](endpoints/task_comment.md)
-* [Upload](endpoints/upload.md)
-* [User](endpoints/user.md)
+* [子任务](endpoints/subtask.md)
+* [任务](endpoints/task.md)
+* [任务 评论](endpoints/task_comment.md)
+* [上传](endpoints/upload.md)
+* [用户](endpoints/user.md)
 * [Webhooks](endpoints/webhooks.md)
 
 ### Tools
