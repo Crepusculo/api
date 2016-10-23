@@ -44,4 +44,4 @@ Wunderlist 数据模型的所有元素存储在一个树中，当数据发生改
 
 除非成功获取了子资源，否则获取的修订值和数据不应被提交到本地模型和持久化层。也就是说，我们在一个父数据的所有子数据都成功获取之前，不应该更新其 child-revision。举个例子，除非所有任务已被成功获取，否则我们不应该应用列表数据和修订的更改。
 
-Deleted items can be found by comparing your local data to the data retrieved during a russian doll sync and comparing for missing ids. However, since tasks may be moved to another list, you should mark a task as missing and only delete it if it is not present in any lists when the russian doll sync has completed successfully. This pattern can be extended to any model type that is "moveable".
+通过将您的本地数据与在俄罗斯套娃式同步期间检索的数据进行比较并比较丢失的 ID，可以找到已删除的项目。 但是，由于任务可能会移动到另一个列表，您应该将一个任务标记为缺失，并且只有当俄罗斯套娃式同步成功完成，且任何列表中不存在该缺失的任务，才将其删除。 此模式可以扩展到任何 "可移动" 的模型类型。
