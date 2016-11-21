@@ -11,8 +11,8 @@ GET a.wunderlist.com/api/v1/avatar
 名称       | 类型      | 备注
 :------- | :------ | :---------------------------------------------------------------------------------------------
 user_id  | integer | **必须**
-size     | integer | **可选的**, values: 25, 28, 30, 32, 50, 54, 56, 60, 64, 108, 128, 135, 256, 270, 512 and original
-fallback | boolean | **必须**
+size     | integer | **可选的**, 可选值: 25, 28, 30, 32, 50, 54, 56, 60, 64, 108, 128, 135, 256, 270, 512 以及 original
+fallback | boolean | **可选的**
 
 ### Response
 
@@ -20,10 +20,11 @@ fallback | boolean | **必须**
 302 Found
 ```
 
-This request will redirect you to an url for the avatar of the given user based on the `user_id`, if there is no avatar it will redirect a default avatar image.
+该请求将会根据 `user_id` 将您重定向到请求给定的用户的头像的网址, 如果没有头像, 则会重定向到默认的头像图像。
 
-**Info:** You don't need to send an `X-Access-Token` for this request.
+**Info:** 该请求不需要你发送 `X-Access-Token`
 
-If you add the optional parameter `size` to the request it will redirect to an avatar with the given `size`.
+**Optional**
+如果您在请求的参数里包含了可选项 `size`,  它将重定向到具有给定 `size` 的头像。
 
-By adding the optional parameter `fallback` with the value `false` to the request, you will not be redirected to our fallback avatars. If there is no custom avatar uploaded for the given `user_id` it will respond with a `204 No Content` and an empty body.
+你可以通过把请求的可选项 `fallback` 设置为 `false` 从而禁止重定向至 API 返回的头像。 如果没有给定的 `user_id` 所对应的自定义头像, 将会返回一个 `204 No Content` 和一个空体。(If there is no custom avatar uploaded for the given `user_id` it will respond with a `204 No Content` and an empty body.)
