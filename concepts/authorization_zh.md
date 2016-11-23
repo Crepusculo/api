@@ -34,7 +34,7 @@ Wunderlist API 不直接使用用户密码，而是允许其它应用通过[OAut
 `redirect_uri`|`string` | **Required**. 授权后用户将会被重定向的网址。详见[重定向网址](#redirect-urls).
 `state`|`string` | **Required**. 一串猜你妈嗨的随机字符串，用于防止跨站请求伪造(Cross-site request forgery, CSRF)攻击。
 
-#### 2. Wunderlist 重定向返回你的网站
+#### 2. Wunderlist 重定向返回你指定的网址
 
 如果用户接受了您的 request，Wunderlist 将会重定向至你设置的 `redirect_uri`，其中包含在 `code` 中返回一个临时代码以及你在之前步骤中提供的 `state` 状态。
 如果这个状态不匹配，那么这个请求已被第三方创建，且当前进程应当被中止。
